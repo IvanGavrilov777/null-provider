@@ -1,4 +1,7 @@
 resource "null_resource" "screen_output" {
+ triggers = {
+    time = timestamp ()
+  }
   provisioner "local-exec" {
     command = <<EOT
     bucket="ivan-timebucket"
