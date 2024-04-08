@@ -8,6 +8,7 @@ resource "null_resource" "screen_output" {
     key="your-object-key"
     url=$(aws s3 presign s3://$bucket/$key)
     echo "Pre-signed URL: $url"
+    date
     EOT
   }
 }
