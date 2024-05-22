@@ -4,11 +4,11 @@ resource "null_resource" "screen_output" {
   }
   provisioner "local-exec" {
     command = <<EOT
-    curl \
+    curl -X 'POST' \
+    'https://app.terraform.io/api/v2/organizations/healthy-organ/teams' \
     --header "Authorization: Bearer ${var.token}" \
-    --header "Content-Type: application/vnd.api+json" \
-    --request POST \  
-    --data @'{
+    --header "Content-Type: application/vnd.api+json" \  
+    -d '{
          "data": {
            "type": "teams",
            "attributes": {
@@ -20,7 +20,6 @@ resource "null_resource" "screen_output" {
            }
          }
         }'
-    "https://app.terraform.io/api/v2/organizations/healthy-organ/teams"
     EOT
     }
 }
