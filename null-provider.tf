@@ -9,7 +9,7 @@ curl \
   --header "Content-Type: application/vnd.api+json" \
   --request POST \
   -d '{"comment": "This run was stuck and ${var.phrase} never finish."}' \
-  https://app.terraform.io/api/v2/runs/run-bs6zmWQPaaVdf3gU/actions/discard
+  https://app.terraform.io/api/v2/runs/run-mRzumDh8tgTW1KAe/actions/discard
 EOT
   }
 }
