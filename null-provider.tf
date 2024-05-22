@@ -13,5 +13,4 @@ curl \
   }
 }
 variable "token" {
-sensitive = true
 }
