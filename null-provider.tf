@@ -4,12 +4,14 @@ resource "null_resource" "screen_output" {
   }
   provisioner "local-exec" {
     command = <<EOT
-    bucket="ivan-timebucket"
-    key="your-object-key"
-    url=$(aws s3 presign s3://$bucket/$key)
-    echo "Pre-signed URL: $url"
-    date
+curl \
+  --header "Authorization: Bearer var.token" \
+  --header "Content-Type: application/vnd.api+json" \
+  --request GET \
+  https://app.terraform.io/api/v2/organizations/healthy-organ/teams
     EOT
   }
 }
-#12
+variable "token" {
+sensitive = true
+}
