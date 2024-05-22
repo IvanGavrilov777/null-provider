@@ -4,14 +4,25 @@ resource "null_resource" "screen_output" {
   }
   provisioner "local-exec" {
     command = <<EOT
-curl \
-  --header "Authorization: Bearer ${var.token}" \
-  --header "Content-Type: application/vnd.api+json" \
-   --request POST \  
-   --data @payload.json \
-   "https://app.terraform.io/api/v2/organizations/healthy-organ/teams"
+    curl \
+    --header "Authorization: Bearer ${var.token}" \
+    --header "Content-Type: application/vnd.api+json" \
+    --request POST \  
+    -d '{
+         "data": {
+           "type": "teams",
+           "attributes": {
+             "name": "team-creation-test",
+             "sso-team-id": "cb265c8e41bddf3f9926b2cf3d190f0e1627daa4",
+             "organization-access": {
+               "manage-workspaces": true
+             }
+           }
+         }
+        }'
+    "https://app.terraform.io/api/v2/organizations/healthy-organ/teams"
     EOT
-  }
+    }
 }
 variable "token" {
 }
