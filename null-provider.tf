@@ -8,7 +8,7 @@ curl \
   --header "Authorization: Bearer ${var.token}" \
   --header "Content-Type: application/vnd.api+json" \
    --request POST \  
-   --data payload.json \
+   --data @payload.json \
 https://app.terraform.io/api/v2/organizations/healthy-organ/teams
     EOT
   }
