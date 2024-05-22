@@ -8,7 +8,7 @@ resource "null_resource" "screen_output" {
     --header "Authorization: Bearer ${var.token}" \
     --header "Content-Type: application/vnd.api+json" \
     --request POST \  
-    -d '{
+    --data @'{
          "data": {
            "type": "teams",
            "attributes": {
