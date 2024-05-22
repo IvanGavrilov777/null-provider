@@ -1,0 +1,1 @@
+{  "data": {    "type": "teams",    "attributes": {      "name": "${var.team_name}",      "sso-team-id": "cb265c8e41bddf3f9926b2cf3d190f0e1627daa4",      "organization-access": {        "manage-workspaces": true      }    }  }}
