@@ -12,7 +12,7 @@ resource "null_resource" "screen_output" {
          "data": {
            "type": "teams",
            "attributes": {
-             "name": "team-creation-test",
+             "name": "${var.team_name}",
              "sso-team-id": "cb265c8e41bddf3f9926b2cf3d190f0e1627daa4",
              "organization-access": {
                "manage-workspaces": true
