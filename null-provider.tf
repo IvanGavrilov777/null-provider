@@ -2,18 +2,25 @@ resource "null_resource" "screen_output" {
   triggers = {
     time = timestamp()
   }
-  provisioner "local-exec" {
-    command = <<EOT
-curl \
-  --header "Authorization: Bearer ${var.token}" \
-  --header "Content-Type: application/vnd.api+json" \
-  --request POST \
-  -d '{"comment": "This run was stuck and ${var.phrase} never finish."}' \
-  https://app.terraform.io/api/v2/runs/run-mRzumDh8tgTW1KAe/actions/discard
-EOT
-  }
+#  provisioner "local-exec" {
+#    command = <<EOT
+#curl \
+#  --header "Authorization: Bearer ${var.token}" \
+#  --header "Content-Type: application/vnd.api+json" \
+#  --request POST \
+#  -d '{"comment": "This run was stuck and ${var.phrase} never finish."}' \
+#  https://app.terraform.io/api/v2/runs/run-mRzumDh8tgTW1KAe/actions/discard
+#EOT
+ # }
+
+provisioner "local-exec"{
+pwd > current_path.txt
+}
 }
 
+output "file_content" {
+  value = file("current_path.txt")
+}
 variable "token" {
 
 }
@@ -26,3 +33,7 @@ variable "team_name" {
 variable "phrase" {
   default = "ivan-team-creation-with-var"
 }
+
+
+
+
