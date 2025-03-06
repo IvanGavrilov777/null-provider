@@ -21,7 +21,7 @@ EOT
 }
 
 output "file_content" {
-  value = file("current_path.txt")
+  value = file("${path.module}/current_path.txt")
 }
 variable "token" {
 
