@@ -20,13 +20,11 @@ EOT
 }
 }
 
-data "local_file" "example" {
-  filename = "${path.module}/current_path.txt"
+
+output "current_module_path" {
+  value = path.module
 }
 
-output "file_content" {
-  value = data.local_file.example.content
-}
 
 variable "token" {
 
